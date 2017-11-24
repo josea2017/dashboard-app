@@ -1,0 +1,56 @@
+<div class="contenedor">
+	<legend>Tareas</legend>
+	<div class="form-inline" *ngIf="operacion_crud.is_visible">
+		<label>Id:</label>
+		<input type="form-control" type="text" placeholder="código" [(ngModel)] = "tarea_actual.id">
+		<label>Descripcion:</label>
+		<input type="form-control" type="text" placeholder="descripción" [(ngModel)] = "tarea_actual.descripcion">
+		<label>Orden:</label>
+		<input type="form-control" type="text" placeholder="orden" [(ngModel)] = "tarea_actual.orden">
+		<button class="btn btn-primary"(click)="save()">
+			<i class = "fa fa-floppy-o" aria-hidden="true"></i>
+			Save
+		</button>
+
+		<button class="btn btn-default"(click)="operacion_crud.is_visible = false">
+			<i class="fa fa-ban" aria-hidden="true"></i>
+			Cancel
+		</button>
+	</div>
+
+	<table class="table table-striped table-hover">
+		<tr>
+			<th>Id</th>
+			<th>Descripción</th>
+			<th>Orden</th>
+			<th class="text-right">
+				<button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden = "true"></i></button>
+				<button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden = "true"></i></button>
+			</th>
+		</tr>
+		<tr *ngFor="let row of tareas">
+			<td>{{row.id}}</td>
+			<td>{{row.descripcion}}</td>
+			<td>{{row.orden}}</td>
+			<td class="text-right">
+				<div *ngIf="!row.confirm">
+					<button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+					<button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+				</div>
+				<div *ngIf="row.confirm">
+					<button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
+					<button class="btn btn-success" (click)="delete(row)">Confirm</button>
+				</div>
+			</td>
+		</tr>
+		<tr *ngIf = "tareas.length == 0">
+			<td colspan="4" class="text-center">No hay datos disponibles</td>
+		</tr>
+	</table>
+
+
+
+
+
+
+</div>
