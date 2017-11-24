@@ -1,16 +1,17 @@
 <div class="contenedor">
 	<legend>Personas</legend>
-	<div class="form-inline">
+	<div class="form-inline" *ngIf="operacion_crud.is_visible">
 		<label>Id:</label>
-		<input class="form-control" type="text">
+		<input class="form-control" type="text" placeholder="cédula" [(ngModel)]="persona_actual.id">
 		<label>Nombre:</label>
-		<input class="form-control" type="text">
+		<input class="form-control" type="text" placeholder="mi nombre" [(ngModel)]="persona_actual.nombre">
 		<label>Avatar:</label>
-		<input class="form-control" type="text">
+		<input class="form-control" type="text" placeholder="url" [(ngModel)]="persona_actual.avatar">
 		<button class="btn btn-primary"(click)="save()">
 			<i class="fa fa-floppy-o" aria-hidden="true"></i>
+			Save
 		</button>
-		<button class="btn btn-default"(click)="crud_operation.is_visible = false">
+		<button class="btn btn-default"(click)="operacion_crud.is_visible = false">
 			<i class="fa fa-ban" aria-hidden="true"></i>
 			Cancel
 		</button>
@@ -36,11 +37,11 @@
 				</div>
 				<div *ngIf="row.confirm">
 					<button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
-					<button class="btn btn-success" (click)="detele(row)">Confirm</button>
+					<button class="btn btn-success" (click)="delete(row)">Confirm</button>
 				</div>
 			</td>
 		</tr>	
-		<tr *ngIf="data.length == 0">
+		<tr *ngIf="personas.length == 0">
 			<td colspan="4" class="text-center">No hay datos disponibles</td>
 		</tr>
 	</table>
