@@ -29,7 +29,7 @@
 		<tr *ngFor="let row of personas">
 			<td>{{row.id}}</td>
 			<td>{{row.nombre}}</td>
-			<td>{{row.avatar}}</td>
+			<td><a href="{{row.avatar}}"><img src="{{row.avatar}}" width="30" height="30"></a></td>
 			<td class="text-right">
 				<div *ngIf="!row.confirm">
 					<button class="btn btn-warning"(click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -46,3 +46,12 @@
 		</tr>
 	</table>
 </div>
+
+<script type="text/javascript">
+function CargarFoto(img, ancho, alto){
+  derecha=(screen.width-ancho)/2;
+  arriba=(screen.height-alto)/2;
+  string="toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width="+ancho+",height="+alto+",left="+derecha+",top="+arriba+"";
+  fin=window.open(img,"",string);
+}
+</script>
