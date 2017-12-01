@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { PersonasCrudComponent } from './personas-crud/personas-crud.component';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
 import { TareasComponent } from './tareas/tareas.component';
+import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component'
+
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'personas', component: PersonasCrudComponent },
+  { path: 'personas/:nombre', component: PersonaDetalleComponent },
   { path: 'proyectos', component: ProyectosCrudComponent },
   { path: 'tareas', component: TareasComponent },
   { path: '', component: PersonasCrudComponent },
