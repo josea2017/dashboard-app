@@ -2,7 +2,7 @@
 	<legend>Proyectos</legend>
 	<div class="form-inline" *ngIf="operacion_crud.is_visible">
 		<label>Id:</label>
-		<input class="form-control" type="text" placeholder="Id" [(ngModel)]="proyecto_actual.id">
+		<input class="form-control" type="number" placeholder="Id" [(ngModel)]="proyecto_actual.id">
 		<label>Nombre:</label>
 		<input class="form-control" type="text" placeholder="Nombre" [(ngModel)]="proyecto_actual.nombre">
 		<label>Icono:</label>
@@ -43,6 +43,12 @@
 				<div *ngIf="!row.confirm">
 					<button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 					<button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<!--<a class="btn btn-info" [routerLink]="['/proyectos/', row.nombre]">
+						<i class="fa fa-eye" aria-hidden="true"></i>
+					</a>-->
+					<a class="btn btn-info" [routerLink]="['/proyectos/', row.id,'dashboard']">
+          				<i class="fa fa-eye" aria-hidden="true"></i>
+        			</a>
 				</div>
 				<div *ngIf="row.confirm">
 					<button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>

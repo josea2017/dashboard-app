@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{proyecto.nombre}}
+    <a class="pull-right" routerLink="/proyectos">
+      Atras
+    </a>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <td>{{proyecto.id}}</td>
+      </tr>
+      <tr>
+        <th>Nombre</th>
+        <td>{{proyecto.nombre}}</td>
+      </tr>
+      <tr>
+        <th>Icono</th>
+        <td>{{proyecto.icono}}</td>
+      </tr>
+      <tr>
+        <th>Fecha de Inicio</th>
+        <td>{{proyecto.fecha_inicio}}</td>
+      </tr>
+      <tr>
+        <th>Número de personas</th>
+        <td>{{proyecto.num_personas}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

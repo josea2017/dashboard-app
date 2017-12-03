@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonaService } from './persona.service';
 import { TareaService } from './tarea.service';
+import { ProyectoService } from './proyecto.service';
 
 
 
@@ -13,6 +14,7 @@ import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.compo
 import { TareasComponent } from './tareas/tareas.component';
 import { TareaDetalleComponent } from './tarea-detalle/tarea-detalle.component';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
+import { ProyectoDetalleComponent } from './proyecto-detalle/proyecto-detalle.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
@@ -25,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProyectosCrudComponent,
     PersonaDetalleComponent,
     DashboardComponent,
-    TareaDetalleComponent
+    TareaDetalleComponent,
+    ProyectoDetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   providers: [
               PersonaService,
-              TareaService
+              TareaService,
+              ProyectoService
               ],
   bootstrap: [AppComponent]
 })
