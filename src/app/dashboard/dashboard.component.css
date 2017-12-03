@@ -1,0 +1,9 @@
+#wrapper {
+	display: flex;
+}
+#columna1 {
+  float: left;
+}
+#columna2 {
+  float: right;
+}
