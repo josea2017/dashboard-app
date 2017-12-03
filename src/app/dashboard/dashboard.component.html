@@ -1,3 +1,7 @@
-<p>
-  dashboard works!
-</p>
+<legend>{{proyecto.nombre}}</legend>
+
+<div class="container">
+	<div *ngFor="let row of tarea">
+		<h2>{{row.descripcion}}</h2>
+	</div>
+</div>

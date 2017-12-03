@@ -1,5 +1,5 @@
 export class Proyecto {
-	id: string;
+	id: number;
 	nombre: string;
 	icono: string;
 	fecha_inicio: any;
