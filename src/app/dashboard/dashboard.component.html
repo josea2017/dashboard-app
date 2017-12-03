@@ -1,7 +1,13 @@
-<legend>{{proyecto.nombre}}</legend>
+<div class="panel panel-default">
+	<div class="panel-heading">
+    	{{ proyecto.nombre }}
+    	<a class="pull-right" routerLink="/proyectos">
+      		Atras 
+    	</a>
+    </div>
 
-<div class="container">
-	<div *ngFor="let row of tarea">
-		<h2>{{row.descripcion}}</h2>
+	<div class="container">
+		<div *ngFor="let row of tarea">
+			<h4>{{row.descripcion}}</h4>
 	</div>
 </div>
