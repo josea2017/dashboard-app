@@ -36,6 +36,9 @@
 				<div *ngIf="!row.confirm">
 					<button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 					<button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<a class="btn btn-info" [routerLink]="['/tareas/', row.descripcion]">
+						<i class="fa fa-eye" aria-hidden="true"></i>
+					</a>
 				</div>
 				<div *ngIf="row.confirm">
 					<button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
