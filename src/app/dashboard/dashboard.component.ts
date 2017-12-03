@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   proyecto: Proyecto;
   tarea: Tarea[];
   private sub: any;
+  id: string;
    constructor(private route: ActivatedRoute, 
    			       private service_proyecto: ProyectoService,
    			       private service_tarea: TareaService) { }
@@ -28,6 +29,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
    ngOnDestroy(){
     this.sub.unsubscribe();
   }
+
+  dragStart(ev){
+    alert("hello");
+    this.id = ev.target.id;
+    alert(this.id);
+  }
+
+  allowDrop(ev){
+    ev.preventDefault();
+  }
+
+  drop(ev){
+    ev.target.append(document.getElementById(this.id));
+
+  }
+
 }
  
 
