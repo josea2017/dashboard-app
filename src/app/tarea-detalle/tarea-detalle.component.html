@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{tarea.descripcion}}
+    <a class="pull-right" routerLink="/tareas">
+      Atras
+    </a>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <td>{{tarea.id}}</td>
+      </tr>
+      <tr>
+        <th>Descripción</th>
+        <td>{{tarea.descripcion}}</td>
+      </tr>
+       <tr>
+        <th>Orden</th>
+        <td>{{tarea.orden}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

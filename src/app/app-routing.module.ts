@@ -2,9 +2,11 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PersonasCrudComponent } from './personas-crud/personas-crud.component';
+import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
 import { TareasComponent } from './tareas/tareas.component';
-import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component'
+import { TareaDetalleComponent } from './tarea-detalle/tarea-detalle.component';
+
 
 
 const routes: Routes = [
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'personas/:nombre', component: PersonaDetalleComponent },
   { path: 'proyectos', component: ProyectosCrudComponent },
   { path: 'tareas', component: TareasComponent },
-  { path: '', component: PersonasCrudComponent },
+  { path: 'tareas/:descripcion', component: TareaDetalleComponent },
+  { path: '', component: ProyectosCrudComponent },
 ];
 
 @NgModule({
