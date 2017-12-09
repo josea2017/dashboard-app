@@ -33,10 +33,11 @@
 }
 
 #div_tareat{
-
-	width: 15%;
+    display: flex;
+	justify-content: space-around;
+	width: 95%;
 	height: 30px;
-	background: #d6d6c2; 
+	background: #ebfaeb; 
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 10px;

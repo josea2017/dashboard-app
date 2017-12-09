@@ -2,11 +2,11 @@
 	<legend>Estados de tareas</legend>
 	<div class="form-inline" *ngIf="operacion_crud.is_visible">
 		<label>Id:</label>
-		<input type="form-control" type="text" placeholder="código" [(ngModel)] = "tarea_actual.id">
+		<input type="form-control" type="number" placeholder="código" [(ngModel)] = "tarea_actual.id">
 		<label>Descripcion:</label>
 		<input type="form-control" type="text" placeholder="descripción" [(ngModel)] = "tarea_actual.descripcion">
 		<label>Orden:</label>
-		<input type="form-control" type="text" placeholder="orden" [(ngModel)] = "tarea_actual.orden">
+		<input type="form-control" type="number" placeholder="orden" [(ngModel)] = "tarea_actual.orden">
 		<button class="btn btn-primary"(click)="save()">
 			<i class = "fa fa-floppy-o" aria-hidden="true"></i>
 			Save
