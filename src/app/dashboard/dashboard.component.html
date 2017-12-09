@@ -49,9 +49,17 @@
     </ul>
   </div>
   <hr>
+  <button class="btn btn-primary" (click)="tareasPorProyecto()">Tareas por proyecto<i aria-hidden="true"></i></button>
+  <button class="btn btn-danger" (click)="ngOnInit()">Cerrar</button>
+  <div class="panel panel-default" *ngIf="mostrarTareasPorProyecto === true">
+    <ul class="list-group" *ngFor="let proyectoR of tareasPorProyectoReturn">
+        <li class="list-group-item">{{proyectoR.id}} - {{proyectoR.nombre}}: {{proyectoR.num_personas}}
+        </li>
+    </ul>
+  </div>
+  <hr>
 
 <div class="panel panel-default" *ngIf="boolpersona === true">
-
   <ul class="list-group" *ngFor="let persona of personas">
       <li class="list-group-item">{{persona.nombre}}<button id="agregar_persona" class="btn btn-primary" (click)="guardarPersonaTarea(persona)"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </li>

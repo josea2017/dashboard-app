@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   mostrarTareasPorPersonas: boolean;
   mostrarTareasPorEstado: boolean;
   tareasPorEstadoReturn: Tarea[];//estados
+  mostrarTareasPorProyecto: boolean;
+  tareasPorProyectoReturn: Proyecto[];
   boolpersona: boolean;
   private sub: any;
   id: string;
@@ -55,6 +57,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mostrarTareasPorPersonas = false;
     this.mostrarTareasPorEstado = false;
     this.tareasPorEstadoReturn = [];
+    this.mostrarTareasPorProyecto = false;
+    this.tareasPorProyectoReturn = []];
 
     //this.tareasPorPersona();
     
@@ -145,6 +149,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.tareasPorEstadoReturn[i].orden = 0;
       }
     }
+  }
+
+  tareasPorProyecto(){
+
+    this.mostrarTareasPorProyecto = true;
+    let tareaAux = this.service_tareat.leer();//tareas
+    let contador = 0;
+    let constante = 0;
+    for (var i = 0; i < tareaAux.length; i++) {
+      if(tareaAux[i].id_proyecto == this.proyecto.id){
+        this.tareasPorProyectoReturn[constante] = this.proyecto;
+        contador++;
+      }
+    }
+    if(contador > 0){
+      this.tareasPorProyectoReturn[constante].num_personas = contador;//cantidad de tareas por proyecto
+    }else{
+      this.tareasPorProyectoReturn[constante] = this.proyecto;
+      this.tareasPorProyectoReturn[constante].id = this.proyecto.id;
+      this.tareasPorProyectoReturn[constante].nombre = this.proyecto.nombre;
+      this.tareasPorProyectoReturn[constante].num_personas = contador;
+    }
+  
   }
 
    ngOnDestroy(){
