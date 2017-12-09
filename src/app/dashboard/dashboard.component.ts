@@ -35,18 +35,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     
   }
 
-  leer(){
-  }
-    
+  
 
    ngOnDestroy(){
     this.sub.unsubscribe();
   }
 
-  dragStart(ev){
-    alert("hello");
-    this.id = ev.target.id;
-    alert(this.id);
+  drag(ev){
+    alert('hola');
+    ev.dataTransfer.setData("Text", ev.target.id);
   }
 
   allowDrop(ev){
@@ -54,9 +51,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   drop(ev){
-    ev.target.append(document.getElementById(this.id));
-
+    ev.preventDefault();
+    var datos = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(datos));
   }
+
+  
 
 }
  

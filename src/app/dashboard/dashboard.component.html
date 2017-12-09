@@ -1,3 +1,4 @@
+
 <div class="panel panel-default">
 	<div class="panel-heading">
     	{{ proyecto.nombre }}
@@ -7,10 +8,10 @@
     </div>
 
 	<div id="panel_tareas" class="panel panel-default">
-		<div id="div_tarea" draggable="true" *ngFor="let estados of tarea">
+		<div id="div_tarea" ondragover="allowDrop(event)" ondrop="drop(event)" *ngFor="let estados of tarea">
 			<h4 align="center" class="nombre_descripcion">{{estados.descripcion}}</h4>
 			<div *ngFor="let tareas of tareat">
-				<div id="div_tareat" draggable="true" *ngIf="estados.id == tareas.id_estado">
+				<div id="div_tareat" draggable="true" ondragstart="drag(event)" *ngIf="estados.id == tareas.id_estado">
 					<h4 align="center" class="tareat_descripcion">{{tareas.descripcion}}</h4>
 				</div>
 			</div>		
