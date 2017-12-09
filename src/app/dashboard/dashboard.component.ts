@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   tareaSeleccionada: Tarea_T;
   estadoActual: number;
   personas: Persona[];
+  tareasPorPersonaReturn: Persona[];
+  mostrarTareasPorPersonas: boolean;
   boolpersona: boolean;
   private sub: any;
   id: string;
@@ -47,6 +49,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.boolpersona = false;
     this.tareaSeleccionada = null;
     this.estadoActual = -1;
+    this.tareasPorPersonaReturn = [];
+    this.mostrarTareasPorPersonas = false;
+    //this.tareasPorPersona();
     
   }
 
@@ -95,6 +100,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.service_tareat.guardarPersonaTarea(this.tareaSeleccionada, aux);
     //alert(this.estadoActual);
     this.ocultarPersonas();
+  }
+
+  tareasPorPersona(){
+
+    this.mostrarTareasPorPersonas = true;
+    let tareaAux = this.service_tareat.leer();
+
+    for (var i = 0; i < this.personas.length; i++) {
+      let contador = 0;
+      for (var j = 0; j < tareaAux.length; j++) {
+        if (this.personas[i].id == tareaAux[j].id_persona) {
+            this.tareasPorPersonaReturn[i] = this.personas[i];
+            contador++;
+        } 
+      }
+      this.tareasPorPersonaReturn[i].avatar = String(contador);      
+    }
   }
 
    ngOnDestroy(){

@@ -30,7 +30,16 @@
     </div>
   </div>
 </div>
-
+<hr>
+  <button class="btn btn-primary" (click)="tareasPorPersona()">Tareas por persona<i aria-hidden="true"></i></button>
+  <button class="btn btn-danger" (click)="ngOnInit()">Cerrar</button>
+  <div class="panel panel-default" *ngIf="mostrarTareasPorPersonas === true">
+    <ul class="list-group" *ngFor="let persona of tareasPorPersonaReturn">
+        <li class="list-group-item">{{persona.nombre}}: {{persona.avatar}}
+        </li>
+    </ul>
+  </div>
+<hr>
 
 <div class="panel panel-default" *ngIf="boolpersona === true">
 
@@ -42,6 +51,8 @@
       Cancelar
   </button>
 </div>
+
+
 
 
 
