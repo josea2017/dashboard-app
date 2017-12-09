@@ -19,6 +19,7 @@ import { ProyectoDetalleComponent } from './proyecto-detalle/proyecto-detalle.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TareasTComponent } from './tareas-t/tareas-t.component';
 import { TareatDetalleComponent } from './tareat-detalle/tareat-detalle.component';
+import {DndModule} from 'ng2-dnd';
 
 
 
@@ -38,6 +39,7 @@ import { TareatDetalleComponent } from './tareat-detalle/tareat-detalle.componen
   imports: [
     BrowserModule,
     FormsModule,
+    DndModule.forRoot(),
     AppRoutingModule
   ],
   providers: [

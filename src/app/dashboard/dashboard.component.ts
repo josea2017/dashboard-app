@@ -16,10 +16,11 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit, OnDestroy {
 
   proyecto: Proyecto;
-  tarea: Tarea[];
+  estados: Tarea[];
   tareat: Tarea_T[];
   private sub: any;
   id: string;
+  operacion_tarea = {is_new: false, is_visible: false};
 
 
    constructor(private route: ActivatedRoute, 
@@ -30,10 +31,39 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   	this.sub = this.route.params.subscribe(params => {this.proyecto = this.service_proyecto.encontrarPorNombre(params['id']);});
-    this.tarea = this.service_tarea.leer(); 
-    this.tareat = this.service_tareat.leerPorId(this.proyecto.id);
+    this.estados = this.service_tarea.leer(); 
+    this.tareat = this.service_tareat.leerPorId(this.proyecto.id, this.estados);
     
   }
+
+  tareaNueva(){
+    this.operacion_tarea.is_visible = true;
+    this.operacion_tarea.is_new = true;
+  }
+  cerrarTarea(){
+    this.operacion_tarea.is_visible = false;
+    this.operacion_tarea.is_new = false;
+  }
+
+  guardar(id_proyecto, id_estado, descripcion){
+
+    if(descripcion.trim().length > 0){
+      let tarea = new Tarea_T;
+      tarea.id_proyecto = id_proyecto;
+      tarea.id_estado = id_estado;
+      tarea.descripcion = descripcion;
+      this.service_tareat.guardarUnaTarea(tarea);
+      this.tareat[String(id_estado - 1)].push(tarea);
+      this.cerrarTarea();
+    }else{
+      alert('Descripción no puede ser vacía');
+    }
+  }
+
+  guardarTareaDragDrop(tarea, estadoId) { 
+    this.service_tareat.guardarDragDropTarea(tarea, estadoId);
+  }
+
 
   
 
@@ -41,22 +71,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  drag(ev){
-    alert('hola');
-    ev.dataTransfer.setData("Text", ev.target.id);
-  }
-
-  allowDrop(ev){
-    ev.preventDefault();
-  }
-
-  drop(ev){
-    ev.preventDefault();
-    var datos = ev.dataTransfer.getData("Text");
-    ev.target.appendChild(document.getElementById(datos));
-  }
-
-  
+    
 
 }
  

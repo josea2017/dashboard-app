@@ -1,73 +1,27 @@
-
-<script type="text/javascript">
-angular
-  .module('demo', ['dndLists'])
-  .controller('DemoController', function($scope) {
-    $scope.model = [generateList(1), generateList(2)];
-
-    $scope.onDrop = function(srcList, srcIndex, targetList, targetIndex) {
-      // Copy the item from source to target.
-      targetList.splice(targetIndex, 0, srcList[srcIndex]);
-      // Remove the item from the source, possibly correcting the index first.
-      // We must do this immediately, otherwise ng-repeat complains about duplicates.
-      if (srcList == targetList && targetIndex <= srcIndex) srcIndex++;
-      srcList.splice(srcIndex, 1);
-      // By returning true from dnd-drop we signalize we already inserted the item.
-      return true;
-    };
-
-    function generateList(id) {
-      return ['A', 'B', 'C'].map(function(letter) {
-        // angular-drag-and-drop-lists usually serializes the objects to drag, thus we
-        // can not transfer functions on the objects. However, as this fiddle uses dnd-callback
-        // to move the objects directly without serialization, we can use a function reference
-        // on the item here.
-        return {
-          labelFunc: function(index) {
-            return "Item " + id + letter + " at index " + index;
-          }
-        };
-      });
-    }
-  });
-</script>
-
 <div class="panel panel-default">
   <div class="panel-heading">
-      {{ proyecto.nombre }}
-      <a class="pull-right" routerLink="/proyectos">
-          Atras 
-      </a>
-    </div>
-
-  <div id="panel_tareas" class="panel panel-default">
-    <div id="div_tarea" *ngFor="let estados of tarea">
-      <h4 align="center" class="nombre_descripcion">{{estados.descripcion}}</h4>
-
-      <div *ngFor="let tareas of tareat">
-        <div id="div_tareat" draggable="true" *ngIf="estados.id == tareas.id_estado">
-          <h4 align="center" class="tareat_descripcion">{{tareas.descripcion}}</h4>
-        </div>
-      </div>    
-    </div>
+    {{ proyecto.nombre }} <a class="pull-right" routerLink="/proyectos">
+      Atras </a>
   </div>
 </div>
 
-
-<div ng-app="demo">
-  <div ng-controller="DemoController" class="row">
-    <div ng-repeat="list in model" class="col-sm-6">
-      <div class="panel panel-info">
-        <div class="panel-heading"><h3 class="panel-title">List {{$index+1}}</h3></div>
-        <div class="panel-body">
-          <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
-            <li ng-repeat="item in list"
-                dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)">
-              {{item.labelFunc($index)}}
-            </li>
+<div class="row">
+  <div class="col-sm-3" *ngFor="let estado of estados; let e = index">
+    <div class="panel panel-info">
+      <div class="panel-heading">{{estado.descripcion}}<button id="agregar_tarea" class="btn btn-success" (click)="tareaNueva()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </div>
+        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="tareat[e]">
+         
+            <ul class="list-group" *ngIf="operacion_tarea.is_visible">
+              <div class="form-inline">
+                <input class="list-group-item" type="text" placeholder="descripcion" #box (keyup.enter)="guardar(proyecto.id, estado.id, box.value)" (keyup.esc)="cerrarTarea()">
+              </div>
+            </ul>
+    
+          <ul class="list-group" *ngFor="let tarea of tareat[e]; let i = index">
+            <li (onDropSuccess)="guardarTareaDragDrop(tarea, estado.id)" class="list-group-item" dnd-sortable [sortableIndex]="i">{{tarea.descripcion}}</li>
           </ul>
         </div>
-      </div>
     </div>
   </div>
 </div>
@@ -75,6 +29,19 @@ angular
 
 
 <!--
+<button class="btn btn-success" (click)="save()">
+                  <i aria-hidden="true"></i>
+                  Guardar
+                </button>
+
+  <div class="form-inline" *ngIf="operacion_tarea.is_visible">
+            <ul class="list-group">
+              <li class="list-group-item"><input class="list-group-item" type="text" placeholder="descripcion"></li>
+            </ul>
+          </div>
+
+
+
 <div id="estados_tareas" class="panel panel-default" style="width: 100%; background: #a6a6a6;">
 		<div style= "width: 100; padding: 7%;"  *ngFor="let row of tarea">
 			<button style= "width: 90%;"><h4>{{row.descripcion}}</h4></button>
