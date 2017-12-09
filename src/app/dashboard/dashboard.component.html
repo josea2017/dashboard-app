@@ -40,6 +40,15 @@
     </ul>
   </div>
 <hr>
+  <button class="btn btn-primary" (click)="tareasPorEstado()">Tareas por estado<i aria-hidden="true"></i></button>
+  <button class="btn btn-danger" (click)="ngOnInit()">Cerrar</button>
+  <div class="panel panel-default" *ngIf="mostrarTareasPorEstado === true">
+    <ul class="list-group" *ngFor="let estado of tareasPorEstadoReturn">
+        <li class="list-group-item">{{estado.descripcion}}: {{estado.orden}}
+        </li>
+    </ul>
+  </div>
+  <hr>
 
 <div class="panel panel-default" *ngIf="boolpersona === true">
 
@@ -47,9 +56,7 @@
       <li class="list-group-item">{{persona.nombre}}<button id="agregar_persona" class="btn btn-primary" (click)="guardarPersonaTarea(persona)"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </li>
   </ul>
-  <button class="btn btn-primary" (click)="ocultarPersonas()"><i class="fla fla-floppy-o" aria-hidden="true"></i>
-      Cancelar
-  </button>
+  <button class="btn btn-danger" (click)="ocultarPersonas()">Cerrar</button>
 </div>
 
 

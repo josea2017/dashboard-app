@@ -24,8 +24,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   tareaSeleccionada: Tarea_T;
   estadoActual: number;
   personas: Persona[];
-  tareasPorPersonaReturn: Persona[];
+  tareasPorPersonaReturn: Persona[];//personas
   mostrarTareasPorPersonas: boolean;
+  mostrarTareasPorEstado: boolean;
+  tareasPorEstadoReturn: Tarea[];//estados
   boolpersona: boolean;
   private sub: any;
   id: string;
@@ -51,6 +53,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.estadoActual = -1;
     this.tareasPorPersonaReturn = [];
     this.mostrarTareasPorPersonas = false;
+    this.mostrarTareasPorEstado = false;
+    this.tareasPorEstadoReturn = [];
+
     //this.tareasPorPersona();
     
   }
@@ -116,6 +121,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
         } 
       }
       this.tareasPorPersonaReturn[i].avatar = String(contador);      
+    }
+  }
+
+  tareasPorEstado(){
+
+    this.mostrarTareasPorEstado = true;
+    let tareaAux = this.service_tareat.leer();//tareas
+
+    for (var i = 0; i < this.estados.length; i++) {
+      let contador = 0;
+      for (var j = 0; j < tareaAux.length; j++) {
+        if(this.proyecto.id == tareaAux[j].id_proyecto && this.estados[i].id == tareaAux[j].id_estado){
+          this.tareasPorEstadoReturn[i] = this.estados[i];
+          contador++;
+        }
+      }
+      if(contador > 0)
+      {
+        this.tareasPorEstadoReturn[i].orden = contador;
+      }else{
+        this.tareasPorEstadoReturn[i] = this.estados[i];
+        this.tareasPorEstadoReturn[i].orden = 0;
+      }
     }
   }
 
