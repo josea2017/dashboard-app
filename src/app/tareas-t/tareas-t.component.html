@@ -22,6 +22,8 @@
 		<tr>
 			<th>Id. proyecto</th>
 			<th>Id. estado</th>
+			<th>Id. persona</th>
+			<th>Nombre persona</th>
 			<th>Descripción</th>
 			<th class="text-right">
 				<button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden = "true"></i></button>
@@ -31,6 +33,8 @@
 		<tr *ngFor="let row of tareas_t">
 			<td>{{row.id_proyecto}}</td>
 			<td>{{row.id_estado}}</td>
+			<td>{{row.id_persona}}</td>
+			<td>{{row.nombre_persona}}</td>
 			<td>{{row.descripcion}}</td>
 			<td class="text-right">
 				<div *ngIf="!row.confirm">

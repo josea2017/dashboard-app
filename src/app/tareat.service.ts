@@ -69,6 +69,13 @@ export class TareaTService{
     this.data[index].id_estado = nuevoIdEstado;
     localStorage.setItem('tareas_t', JSON.stringify(this.data));
   }
+
+  guardarPersonaTarea(tarea, idPersona){
+    const index = this.data.indexOf(tarea);
+    this.data[index].id_persona = idPersona.id;
+    this.data[index].nombre_persona = idPersona.nombre;
+    localStorage.setItem('tareas_t', JSON.stringify(this.data));
+  }
 	
 	
 }

@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'personas/:nombre', component: PersonaDetalleComponent },
   { path: 'proyectos', component: ProyectosCrudComponent },
   { path: 'proyectos/:nombre', component: ProyectoDetalleComponent },
-  { path: 'proyectos/:id/dashboard/:id', component: DashboardComponent},
+  { path: 'proyectos/:id/dashboard/:id/personas/:id', component: DashboardComponent},
   { path: 'tareas', component: TareasComponent },
   { path: 'tareas/:descripcion', component: TareaDetalleComponent },
   { path: 'tareas_t', component: TareasTComponent },

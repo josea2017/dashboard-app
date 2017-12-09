@@ -19,11 +19,28 @@
             </ul>
            
           <ul class="list-group" *ngFor="let tarea of tareat[e]; let i = index">
-            <li (onDropSuccess)="guardarTareaDragDrop(tarea, estado.id)" class="list-group-item" dnd-sortable [sortableIndex]="i">{{tarea.descripcion}}<button id="agregar_persona" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button></li>
+            <li (onDropSuccess)="guardarTareaDragDrop(tarea, estado.id)" class="list-group-item" dnd-sortable [sortableIndex]="i">{{tarea.descripcion}}
+              <button id="agregar_persona" class="btn btn-primary" (click)="mostrarPersonas(tarea, estado.id)"><i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+              <button id="agregar_persona" class="btn btn-primary">{{tarea.nombre_persona}}<i></i>
+              </button>
+            </li>
           </ul>
         </div>
     </div>
   </div>
+</div>
+
+
+<div class="panel panel-default" *ngIf="boolpersona === true">
+
+  <ul class="list-group" *ngFor="let persona of personas">
+      <li class="list-group-item">{{persona.nombre}}<button id="agregar_persona" class="btn btn-primary" (click)="guardarPersonaTarea(persona)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </li>
+  </ul>
+  <button class="btn btn-primary" (click)="ocultarPersonas()"><i class="fla fla-floppy-o" aria-hidden="true"></i>
+      Cancelar
+  </button>
 </div>
 
 

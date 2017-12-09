@@ -8,8 +8,6 @@ import { ProyectoService } from './proyecto.service';
 import { TareaTService } from './tareat.service';
 
 
-
-
 import { AppComponent } from './app.component';
 import { PersonasCrudComponent } from './personas-crud/personas-crud.component';
 import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
@@ -23,6 +21,7 @@ import { TareatDetalleComponent } from './tareat-detalle/tareat-detalle.componen
 import {DndModule} from 'ng2-dnd';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 
 
@@ -47,7 +46,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     BrowserModule,
     FormsModule,
     DndModule.forRoot(),
-    NgbModule.forRoot(),
+    NgbModule.forRoot(), 
     AppRoutingModule
   ],
   providers: [

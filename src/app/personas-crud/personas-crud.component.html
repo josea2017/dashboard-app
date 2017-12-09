@@ -2,7 +2,7 @@
 	<legend>Personas</legend>
 	<div class="form-inline" *ngIf="operacion_crud.is_visible">
 		<label>Id:</label>
-		<input class="form-control" type="text" placeholder="cédula" [(ngModel)]="persona_actual.id">
+		<input class="form-control" type="number" placeholder="cédula" [(ngModel)]="persona_actual.id">
 		<label>Nombre:</label>
 		<input class="form-control" type="text" placeholder="mi nombre" [(ngModel)]="persona_actual.nombre">
 		<label>Avatar:</label>
