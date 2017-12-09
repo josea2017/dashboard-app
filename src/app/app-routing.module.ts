@@ -8,6 +8,7 @@ import { ProyectoDetalleComponent } from './proyecto-detalle/proyecto-detalle.co
 import { TareasComponent } from './tareas/tareas.component';
 import { TareaDetalleComponent } from './tarea-detalle/tarea-detalle.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TareasTComponent } from './tareas-t/tareas-t.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'proyectos/:id/dashboard', component: DashboardComponent},
   { path: 'tareas', component: TareasComponent },
   { path: 'tareas/:descripcion', component: TareaDetalleComponent },
+  { path: 'tareas_t', component: TareasTComponent },
   { path: '', component: ProyectosCrudComponent },
 ];
 
