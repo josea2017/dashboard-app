@@ -9,6 +9,7 @@ import { TareaTService } from './tareat.service';
 
 
 
+
 import { AppComponent } from './app.component';
 import { PersonasCrudComponent } from './personas-crud/personas-crud.component';
 import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
@@ -20,6 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TareasTComponent } from './tareas-t/tareas-t.component';
 import { TareatDetalleComponent } from './tareat-detalle/tareat-detalle.component';
 import {DndModule} from 'ng2-dnd';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -36,10 +39,15 @@ import {DndModule} from 'ng2-dnd';
     TareasTComponent,
     TareatDetalleComponent
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+
   imports: [
     BrowserModule,
     FormsModule,
     DndModule.forRoot(),
+    NgbModule.forRoot(),
     AppRoutingModule
   ],
   providers: [

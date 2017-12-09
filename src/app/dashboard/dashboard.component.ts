@@ -6,6 +6,7 @@ import { TareaService } from '../tarea.service';
 import { Tarea_T } from '../tarea-t';
 import { TareaTService } from '../tareat.service';
 import { ActivatedRoute } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   tareat: Tarea_T[];
   private sub: any;
   id: string;
-  operacion_tarea = {is_new: false, is_visible: false};
+  mostrarBtn = -1;
+  animal: string;
+  name: string;
 
 
    constructor(private route: ActivatedRoute, 
@@ -36,14 +39,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
     
   }
 
-  tareaNueva(){
-    this.operacion_tarea.is_visible = true;
-    this.operacion_tarea.is_new = true;
+  tareaNueva(indice) {
+    this.mostrarBtn = indice;
   }
-  cerrarTarea(){
-    this.operacion_tarea.is_visible = false;
-    this.operacion_tarea.is_new = false;
+
+  cerrarTarea() {
+    this.mostrarBtn = -1;
   }
+
+ 
+  /*
+  abrirVentanaPersonas(){
+    this.operacion_tarea.open_window = true;
+    if(this.operacion_tarea.open_window == true){
+      alert(this.operacion_tarea.open_window);
+
+    }
+  }*/
+
+
 
   guardar(id_proyecto, id_estado, descripcion){
 
@@ -71,8 +85,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-    
-
+   
 }
  
 
