@@ -6,22 +6,20 @@
     	</a>
     </div>
 
-	<div id="columna1" class="panel panel-default" style="width: 25%; background: #a6a6a6;">
-		<div class="column" style= "padding: 10px;"  *ngFor="let row of tarea">
-			<button style= "width: 97%;" id="dragelement" draggable="true" (click)="dragStart($event)"><h4>{{row.descripcion}}</h4></button>
+	<div id="panel_tareas" class="panel panel-default">
+		<div id="div_tarea" draggable="true" *ngFor="let row of tarea">
+			<h4 align="center" class="nombre_descripcion">{{row.descripcion}}</h4>
 		</div>
 	</div>
-	<div id="columna2" class="panel panel-default" style="width: 74%; background: #e6e6e6;">
-		<table style= "width: 97%;">
-			<tr>
-				<div class="column" style= "padding: 10px;"  *ngFor="let row of tarea">
-					<!--<button style= "width: 97%;"><h4>{{row.descripcion}}</h4></button>-->
-					<div id="dcolumna2" ondragover="allowDrop(event)" ondrop="drop(event)" style="width: 97%; height: 15%;"></div>
-				</div>
-			</tr>
-		</table>
-	</div>
+	
 </div>
+<!--
+<div id="estados_tareas" class="panel panel-default" style="width: 100%; background: #a6a6a6;">
+		<div style= "width: 100; padding: 7%;"  *ngFor="let row of tarea">
+			<button style= "width: 90%;"><h4>{{row.descripcion}}</h4></button>
+		</div>
+	</div>
+-->
 <!--
 <script type="text/javascript">
 

@@ -1,9 +1,25 @@
-#wrapper {
+#panel_tareas{
 	display: flex;
+	justify-content: space-around;
+	width: 100%; 
+	height: 100%; 
+	background: #f5f5f0;
+	padding: 30px;
 }
-#columna1 {
-  float: left;
+
+#div_tarea{
+
+	width: 20%;
+	height: 30%;
+	background: #d6d6c2; 
+	padding: 5%;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
 }
-#columna2 {
-  float: right;
+
+.nombre_descripcion{
+	margin-top: -50px;
 }
+
+
