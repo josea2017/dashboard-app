@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PersonaService } from './persona.service';
 import { TareaService } from './tarea.service';
 import { ProyectoService } from './proyecto.service';
+import { TareaTService } from './tareat.service';
 
 
 
@@ -16,6 +17,8 @@ import { TareaDetalleComponent } from './tarea-detalle/tarea-detalle.component';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
 import { ProyectoDetalleComponent } from './proyecto-detalle/proyecto-detalle.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TareasTComponent } from './tareas-t/tareas-t.component';
+import { TareatDetalleComponent } from './tareat-detalle/tareat-detalle.component';
 
 
 
@@ -28,7 +31,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PersonaDetalleComponent,
     DashboardComponent,
     TareaDetalleComponent,
-    ProyectoDetalleComponent
+    ProyectoDetalleComponent,
+    TareasTComponent,
+    TareatDetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   providers: [
               PersonaService,
               TareaService,
-              ProyectoService
+              ProyectoService,
+              TareaTService
               ],
   bootstrap: [AppComponent]
 })
