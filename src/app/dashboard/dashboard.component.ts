@@ -24,13 +24,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
    constructor(private route: ActivatedRoute, 
    			       private service_proyecto: ProyectoService,
-   			       private service_tarea: TareaService
+   			       private service_tarea: TareaService,
+               private service_tareat: TareaTService,
                ) { }
 
   ngOnInit() {
   	this.sub = this.route.params.subscribe(params => {this.proyecto = this.service_proyecto.encontrarPorNombre(params['id']);});
     this.tarea = this.service_tarea.leer(); 
+    this.tareat = this.service_tareat.leerPorId(this.proyecto.id);
   }
+    
 
    ngOnDestroy(){
     this.sub.unsubscribe();
