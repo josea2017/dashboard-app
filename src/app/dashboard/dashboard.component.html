@@ -7,15 +7,16 @@
     </div>
 
 	<div id="panel_tareas" class="panel panel-default">
-		<div id="div_tarea" draggable="true" *ngFor="let row of tarea">
-			<h4 align="center" class="nombre_descripcion">{{row.descripcion}}</h4>		
+		<div id="div_tarea" draggable="true" *ngFor="let estados of tarea">
+			<h4 align="center" class="nombre_descripcion">{{estados.descripcion}}</h4>
+			<div *ngFor="let tareas of tareat">
+				<div id="div_tareat" draggable="true" *ngIf="estados.id == tareas.id_estado">
+					<h4 align="center" class="tareat_descripcion">{{tareas.descripcion}}</h4>
+				</div>
+			</div>		
 		</div>
 	</div>
-	<div id="panel_tareast" class="panel panel-default">
-		<div id="div_tareat" draggable="true" *ngFor="let row of tareat">
-			<h4 align="center" class="tareat_descripcion">{{row.descripcion}}</h4>	
-		</div>
-	</div>
+	
 	
 </div>
 <!--

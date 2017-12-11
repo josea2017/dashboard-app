@@ -1,7 +1,7 @@
 export class Tarea {
-	id: string;
+	id: number;
 	descripcion: string;
-	orden: string;
+	orden: number;
 
 	constructor(){}
 

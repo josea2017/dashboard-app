@@ -32,6 +32,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   	this.sub = this.route.params.subscribe(params => {this.proyecto = this.service_proyecto.encontrarPorNombre(params['id']);});
     this.tarea = this.service_tarea.leer(); 
     this.tareat = this.service_tareat.leerPorId(this.proyecto.id);
+    
+  }
+
+  leer(){
   }
     
 
