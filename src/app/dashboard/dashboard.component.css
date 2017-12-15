@@ -43,3 +43,8 @@
 	border-radius: 10px;
 }
 
+#agregar_tarea{
+	float: right;
+	margin-top: -7px; 
+}
+
