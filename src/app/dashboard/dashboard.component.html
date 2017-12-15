@@ -8,23 +8,24 @@
 <div class="row">
   <div class="col-sm-3" *ngFor="let estado of estados; let e = index">
     <div class="panel panel-info">
-      <div class="panel-heading">{{estado.descripcion}}<button id="agregar_tarea" class="btn btn-success" (click)="tareaNueva()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      <div class="panel-heading">{{estado.descripcion}}<button id="agregar_tarea" class="btn btn-success" (click)="tareaNueva(e)"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </div>
         <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="tareat[e]">
          
-            <ul class="list-group" *ngIf="operacion_tarea.is_visible">
+            <ul class="list-group" *ngIf="mostrarBtn===e">
               <div class="form-inline">
                 <input class="list-group-item" type="text" placeholder="descripcion" #box (keyup.enter)="guardar(proyecto.id, estado.id, box.value)" (keyup.esc)="cerrarTarea()">
               </div>
             </ul>
-    
+           
           <ul class="list-group" *ngFor="let tarea of tareat[e]; let i = index">
-            <li (onDropSuccess)="guardarTareaDragDrop(tarea, estado.id)" class="list-group-item" dnd-sortable [sortableIndex]="i">{{tarea.descripcion}}</li>
+            <li (onDropSuccess)="guardarTareaDragDrop(tarea, estado.id)" class="list-group-item" dnd-sortable [sortableIndex]="i">{{tarea.descripcion}}<button id="agregar_persona" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button></li>
           </ul>
         </div>
     </div>
   </div>
 </div>
+
 
 
 
